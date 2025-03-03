@@ -1,5 +1,5 @@
-//TODO write a description for this script
-//@author 
+//Analyze a given binary to determine which compile-time mitigations are enabled for each function
+//@author Matthew Levy
 //@category _NEW_
 //@keybinding 
 //@menupath 
@@ -43,7 +43,6 @@ import ghidra.program.model.listing.*;
 import ghidra.program.model.address.*;
 
 // TODO: Make Headless better supported
-// TODO: Add checks for FORTIFY_SOURCE
 // TODO: Add check for stack clash protection
 // TODO: Add check for auto-var-init
 
@@ -108,7 +107,6 @@ enum SearchedFunction {
 	// gets
 	GETS;
 	
-	// TODO: Optimize this via Trie
 	public static SearchedFunction Find(String funcName) {
 		if (funcName.equals("___stack_chk_fail")) {
 			return STACK_CHK_FAIL;
